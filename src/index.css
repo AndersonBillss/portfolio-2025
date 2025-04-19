@@ -3,6 +3,16 @@
   line-height: 1.5;
   font-weight: 400;
 }
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+h1 {
+  text-wrap: wrap;
+  text-align: center;
+}
 
 body {
   margin: 0;

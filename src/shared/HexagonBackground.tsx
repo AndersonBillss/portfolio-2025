@@ -1,8 +1,13 @@
 import { RefObject, useEffect, useRef } from "react"
+import "./HexagonBackground.css"
 
-export default function HexagonBackground(){
+
+type componentProps = {
+    className: string
+}
+export default function HexagonBackground(props: componentProps){
     const canvasRef: RefObject<HTMLCanvasElement | null> = useRef(null);
-    const sideLength: number = 50;
+    const sideLength: number = 20;
     const lineThickess: number = 2;
     const color: string = "green";
 
@@ -11,10 +16,24 @@ export default function HexagonBackground(){
         if (!canvas) return;
         const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
         if(!ctx) return;
-        
+        drawHexagons(canvas, ctx)
+
+        const observer = new ResizeObserver(() => { drawHexagons(canvas, ctx) });
+        observer.observe(canvas);
+        return () => observer.disconnect();
+    },[])
+
+
+    function drawHexagons(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D){
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
         // Each angle in a hexagon 2PI/3 radians. Subtracting PI/2 gets us PI/6
         const hexagonSin: number = Math.sin((Math.PI)/6);
         const hexagonCos: number = Math.cos((Math.PI)/6);
+
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
 
         const canvasWidth: number = canvas.width;
         const canvasHeight: number = canvas.width;
@@ -46,29 +65,19 @@ export default function HexagonBackground(){
                 // Adjust currentY based on whether the line segment being drawn is pointing up or down
                 currentY += hexagonSin * sideLength * (pointingDown?1:-1);
                 ctx.lineTo(currentX, currentY)
-                ctx.stroke()
                 // If the line segment is pointing down, draw a side
                 if(pointingDown){
                     ctx.lineTo(currentX, currentY + sideLength)
-                    ctx.stroke()
                     ctx.moveTo(currentX, currentY)
                 }
                 pointingDown = !pointingDown
             }
-
             currentRow++
         }
-
-    },[])
+        ctx.stroke()
+    }
 
     return (
-    <>
-        <canvas
-        ref={canvasRef}
-        width={500}
-        height={200}
-        style={{ border: '1px solid black' }}
-        />    
-    </>
+        <canvas className={props.className} ref={canvasRef} />    
     )
 }
