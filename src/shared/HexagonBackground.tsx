@@ -9,7 +9,7 @@ type componentProps = {
 export default function HexagonBackground(props: componentProps){
     const canvasRef: RefObject<HTMLCanvasElement | null> = useRef(null);
     const sideLength: number = props.sideLength??20;
-    const lineThickess: number = props.lineThickness??2;
+    const lineThickess: number = props.lineThickness??3;
     let color: string = "black";
     const inverted: boolean = props.inverted??false;
 
@@ -18,7 +18,7 @@ export default function HexagonBackground(props: componentProps){
         if (!canvas) return;
         const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
         if(!ctx) return;
-        let cssColor = getComputedStyle(canvas).getPropertyValue('--hex-color').trim();
+        let cssColor = getComputedStyle(canvas).getPropertyValue('color').trim();
         if(cssColor) color = cssColor;
 
         // Initial hexagon draw

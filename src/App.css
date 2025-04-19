@@ -6,5 +6,5 @@
 }
 .hexagon-background{
   width: 100vw;
-  --hex-color: green;
+  color: var(--primary-dark);
 }
