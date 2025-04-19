@@ -4,14 +4,13 @@ type componentProps = {
     className?: string,
     sideLength?: number,
     lineThickness?: number,
-    color?: string,
     inverted?: boolean
 }
 export default function HexagonBackground(props: componentProps){
     const canvasRef: RefObject<HTMLCanvasElement | null> = useRef(null);
     const sideLength: number = props.sideLength??20;
     const lineThickess: number = props.lineThickness??2;
-    const color: string = props.color??"black";
+    let color: string = "black";
     const inverted: boolean = props.inverted??false;
 
     useEffect(() => {
@@ -19,17 +18,19 @@ export default function HexagonBackground(props: componentProps){
         if (!canvas) return;
         const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
         if(!ctx) return;
+        let cssColor = getComputedStyle(canvas).getPropertyValue('--hex-color').trim();
+        if(cssColor) color = cssColor;
 
         // Initial hexagon draw
         drawHexagons(canvas, ctx)
-
+        
         // Redraw the hexagons when the element is resized
         const observer = new ResizeObserver(() => { drawHexagons(canvas, ctx) });
         observer.observe(canvas);
         return () => observer.disconnect();
     },[])
-
-
+    
+    
     function drawHexagons(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D){
         // Set the canvas's width and heigh based off of the browser computed width and height
         canvas.width = canvas.clientWidth;

@@ -5,7 +5,7 @@ function App() {
 
   return (
     <div className='main'>
-      <HexagonBackground inverted className='hexagon-background' color='black'/>
+      <HexagonBackground inverted className='hexagon-background'/>
       <h1>Hello, World!</h1>
     </div>
   )
