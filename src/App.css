@@ -7,4 +7,40 @@
 .hexagon-background{
   width: 100vw;
   color: var(--primary-dark);
+  background: radial-gradient(circle, white, var(--primary-dark));
+}
+
+.home-img-container{
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+.home-img-overlay{
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  background-color: var(--primary-dark);
+  opacity: 50%;
+}
+.home-img{
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+  z-index: -1;
+}
+.home-img-title-container{
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  color: var(--card-light);
+  padding: 10px 15px;
+  margin: auto;
+}
+.home-img-title{
+  color: var(--card-light);
+  padding: 10px 15px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }

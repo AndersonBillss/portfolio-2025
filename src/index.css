@@ -1,8 +1,8 @@
 :root {
   --primary-dark: rgb(0, 57, 50);
   --primary-mid: rgb(8, 95, 73);
-  --primary-card-light: rgb(41, 126, 92);
-  --primary-card-dark: rgb(50, 168, 121);
+  --primary-card-dark: rgb(41, 126, 92);
+  --primary-card-light: rgb(41, 142, 102);
 
   --secondary-light: rgb(250, 233, 200);
   --secondary-mid: rgb(234, 167, 43);
@@ -22,6 +22,7 @@
   margin: 0;
   padding: 0;
   border: none;
+  color: var(--text-dark);
 }
 
 h1 {
