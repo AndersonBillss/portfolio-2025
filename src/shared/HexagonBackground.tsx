@@ -1,23 +1,29 @@
 import { RefObject, useEffect, useRef } from "react"
-import "./HexagonBackground.css"
-
 
 type componentProps = {
-    className: string
+    className?: string,
+    sideLength?: number,
+    lineThickness?: number,
+    color?: string,
+    inverted?: boolean
 }
 export default function HexagonBackground(props: componentProps){
     const canvasRef: RefObject<HTMLCanvasElement | null> = useRef(null);
-    const sideLength: number = 20;
-    const lineThickess: number = 2;
-    const color: string = "green";
+    const sideLength: number = props.sideLength??20;
+    const lineThickess: number = props.lineThickness??2;
+    const color: string = props.color??"black";
+    const inverted: boolean = props.inverted??false;
 
     useEffect(() => {
         const canvas: HTMLCanvasElement | null = canvasRef.current;
         if (!canvas) return;
         const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
         if(!ctx) return;
+
+        // Initial hexagon draw
         drawHexagons(canvas, ctx)
 
+        // Redraw the hexagons when the element is resized
         const observer = new ResizeObserver(() => { drawHexagons(canvas, ctx) });
         observer.observe(canvas);
         return () => observer.disconnect();
@@ -25,18 +31,23 @@ export default function HexagonBackground(props: componentProps){
 
 
     function drawHexagons(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D){
+        // Set the canvas's width and heigh based off of the browser computed width and height
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+        
         // Clear the canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if(inverted){
+            ctx.globalCompositeOperation = "source-over";
+            ctx.fillStyle = color;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        } else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
 
         // Each angle in a hexagon 2PI/3 radians. Subtracting PI/2 gets us PI/6
         const hexagonSin: number = Math.sin((Math.PI)/6);
         const hexagonCos: number = Math.cos((Math.PI)/6);
 
-        canvas.width = canvas.clientWidth;
-        canvas.height = canvas.clientHeight;
-
-        const canvasWidth: number = canvas.width;
-        const canvasHeight: number = canvas.width;
 
         const startingX: number = 0;
         const startingY: number = 0;
@@ -48,19 +59,30 @@ export default function HexagonBackground(props: componentProps){
 
         let pointingDown: boolean = true;
 
-        ctx.strokeStyle = color;
+        if(inverted){
+            ctx.globalCompositeOperation = "destination-out";
+            ctx.strokeStyle = "white";
+        } else {
+            ctx.globalCompositeOperation = "source-over";
+            ctx.strokeStyle = color;
+        }
+
         ctx.lineWidth = lineThickess;
         ctx.beginPath();
 
         // Draw rows of hexagons across the height of the canvas
-        while(currentY <= canvasHeight){
+        while(currentY <= canvas.height){
+            // Set the starting Y value based on the current row
             currentY = currentRow * (sideLength + sideLength * hexagonSin)
+            // Set the starting X value based on the current row
             currentX = currentRow % 2 == 0 ? 0 : -sideLength * hexagonCos 
+            // Always start a row pointing down
             pointingDown = true
+
             ctx.moveTo(currentX, currentY)
 
             // Draw half hexagon shapes across the width of the canvas
-            while(currentX <= canvasWidth){
+            while(currentX <= canvas.width){
                 currentX += hexagonCos * sideLength;
                 // Adjust currentY based on whether the line segment being drawn is pointing up or down
                 currentY += hexagonSin * sideLength * (pointingDown?1:-1);
@@ -70,14 +92,15 @@ export default function HexagonBackground(props: componentProps){
                     ctx.lineTo(currentX, currentY + sideLength)
                     ctx.moveTo(currentX, currentY)
                 }
+                // Alternate pointing down
                 pointingDown = !pointingDown
             }
+
+            // Go to the next row
             currentRow++
         }
         ctx.stroke()
     }
 
-    return (
-        <canvas className={props.className} ref={canvasRef} />    
-    )
+    return <canvas className={props.className} ref={canvasRef} />
 }
