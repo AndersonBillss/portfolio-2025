@@ -11,32 +11,28 @@
 }
 
 .home-img-container{
+  --home-img-width: 100%;
+  --home-img-height: 200px;
   position: relative;
-  width: 100%;
-  height: 200px;
+  width: var(--home-img-width);
+  height: var(--home-img-height);
+  display: flex;
+  place-items: center;
 }
 .home-img-overlay{
   position: absolute;
-  width: 100%;
-  height: 200px;
+  width: var(--home-img-width);
+  height: var(--home-img-height);
   background-color: var(--primary-dark);
   opacity: 50%;
+  z-index: -1;
 }
 .home-img{
   position: absolute;
   object-fit: cover;
-  width: 100%;
-  height: 200px;
-  z-index: -1;
-}
-.home-img-title-container{
-  position: absolute;
-  top: 50px;
-  left: 0;
-  right: 0;
-  color: var(--card-light);
-  padding: 10px 15px;
-  margin: auto;
+  width: var(--home-img-width);
+  height: var(--home-img-height);
+  z-index: -2;
 }
 .home-img-title{
   color: var(--card-light);
