@@ -9,6 +9,11 @@
   color: var(--primary-dark);
   background: radial-gradient(circle, white, var(--primary-dark));
 }
+.mouse-light{
+  width: 100vw;
+  color: white;
+  background-color: var(--primary-dark);
+}
 
 .home-img-container{
   --home-img-width: 100%;
