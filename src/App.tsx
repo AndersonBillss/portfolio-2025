@@ -7,12 +7,16 @@ function App() {
   return (
     <div className='main'>
       <HexagonBackground inverted className='hexagon-background'/>
+      <MouseLight radius={600} className='mouse-light'/>
+
       <div className='home-img-container'>
         <div className='home-img-overlay'></div>
         <img className='home-img' src='motherboard.jpg'></img>
-        <h1 className='home-img-title'>Hi, my name is Anderson</h1>
+        <div className='home-img-title'>
+          <h1>Hi, my name is Anderson</h1>
+          <p>Full Stack Software Developer</p>
+        </div>
       </div>
-      <MouseLight radius={500} className='mouse-light'/>
     </div>
   )
 }
