@@ -2,38 +2,48 @@ import './project.css'
 import { project } from "../../../projects"
 import { RefObject, useEffect, useRef, useState } from 'react'
 
+function useDimensions(ref: RefObject<HTMLElement | null>) {
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+    
+    useEffect(() => {
+        const observer = new ResizeObserver(([entry]) => {
+            let { width, height } = entry.contentRect;
+            width += entry.contentRect.x * 2
+            height += entry.contentRect.y * 2
+            setDimensions({ width, height });
+        });
+        
+        if (ref.current) observer.observe(ref.current);
+        
+        return () => observer.disconnect();
+    }, [ref]);
+    
+    return dimensions;
+}
+
 type componentProps = {
     project: project
 }
 export default function Project(props: componentProps){
-    const project: project = props.project
+    const projectData: project = props.project
     const [expanded, setExpanded] = useState(false)
-    const [cardDimensions, setCardDimensions] = useState({width: 0, height: 0})
     const cardRef: RefObject<HTMLDivElement | null> = useRef(null);
+    const cardDimensions = useDimensions(cardRef)
     const cardTopRef: RefObject<HTMLDivElement | null> = useRef(null);
+    const cardTopDimensions = useDimensions(cardTopRef)
 
-    useEffect(() => {
-        // Observe changes to card and resize
-        if(!cardRef.current) return
-        const observer = new ResizeObserver(() => {
-            if(!cardRef.current) return
-            const boundingClient: DOMRect = cardRef.current.getBoundingClientRect()
-            setCardDimensions({width: boundingClient.width, height: boundingClient.height})
-        });
-        observer.observe(cardRef.current);
-        return () => observer.disconnect();
-    }, [])
-
+    const dimensions = expanded?cardDimensions:cardTopDimensions
+    
     // Compute CSS text color
     let iconColor: string | null = null
     const root: HTMLElement | null = document.getElementById('root');
     if(root) iconColor = getComputedStyle(root).getPropertyValue('--text-light')
 
     return(
-        <div className='card-container' style={{width: cardDimensions.width, height: cardDimensions.height}}>
+        <div className='card-container' style={{width: dimensions.width, height: dimensions.height}}>
             <div className="card" ref={cardRef}>
                 <div className='card-top' ref={cardTopRef}>
-                    <h3>{project.title}</h3>
+                    <h3>{projectData.title}</h3>
                     <div className='icon button'>     
                         <svg 
                         onClick={() => {setExpanded(!expanded)}} 
@@ -44,9 +54,9 @@ export default function Project(props: componentProps){
                         </svg>
                     </div>
                 </div>
-                {expanded && <div className='card-bottom'>
+                <div className={expanded?'card-bottom expanded' : 'card-bottom'}>
                     HELLO
-                </div>}
+                </div>
             </div>
         </div>
     )

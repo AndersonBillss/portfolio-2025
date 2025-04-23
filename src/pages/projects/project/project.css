@@ -9,14 +9,22 @@
     display: flex;
     flex-direction: column;
     background-color: var(--card-light);
-    padding: 10px 20px;
     align-items: center;
     position: absolute;
 }
 .card-top{
     display: flex;
     align-items: center;
+    padding: 10px 15px;
 }
+/* .card-bottom{
+    display: flex;
+    d
+}
+.card-bottom.expanded{
+    display: flex;
+} */
+
 .icon.button{
     display: flex;
     padding: 0;
