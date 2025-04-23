@@ -1,5 +1,35 @@
+.card-container{
+    position: relative;
+    transition: height .5s ease-in-out, width .5s ease-in-out;
+    border-radius: 5px;
+    margin: 10px;
+    overflow: hidden;
+}
 .card{
+    display: flex;
+    flex-direction: column;
     background-color: var(--card-light);
     padding: 10px 20px;
-    margin: 10px;
+    align-items: center;
+    position: absolute;
+}
+.card-top{
+    display: flex;
+    align-items: center;
+}
+.icon.button{
+    display: flex;
+    padding: 0;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.icon-path{
+    transition: transform .1s ease-in-out;
+}
+.icon-path.right{
+    transform: rotate(0deg);
+}
+.icon-path.down{
+    transform: rotate(90deg);
 }

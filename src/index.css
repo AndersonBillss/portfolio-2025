@@ -40,6 +40,11 @@ h2{
   text-wrap: wrap;
   text-align: center;
 }
+h3{
+  font-size: 20px;
+  text-wrap: wrap;
+  text-align: center;
+}
 p {
   text-align: center;
 }
