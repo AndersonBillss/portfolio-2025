@@ -1,0 +1,17 @@
+export enum technologies {
+    typescript,
+    javaScript,
+    HTML,
+    CSS,
+    Tailwind,
+    React,
+    Angular,
+    CS,
+    CPP,
+    Dotnet,
+    Godot,
+    Java,
+    Python,
+    Nodejs,
+    AWS,
+}

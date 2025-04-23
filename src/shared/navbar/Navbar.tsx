@@ -1,10 +1,11 @@
 import "./navbar.css"
+import { Link } from "react-router-dom";
 
 export default function Navbar(){
     return(
         <div className="navbar">
-           <button className="button">Home</button>
-           <button className="button">See Projects</button>
+           <Link className="button" to="/">Home</Link>
+           <Link className="button" to="/projects">See Projects</Link>
         </div>
     )
 }
