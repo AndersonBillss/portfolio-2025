@@ -1,18 +1,18 @@
 :root {
   --primary-dark: rgb(0, 57, 50);
   --primary-mid: rgb(8, 95, 73);
-  --primary-card-dark: rgb(41, 126, 92);
-  --primary-card-light: rgb(41, 142, 102);
+  --primary-light: rgb(173, 248, 218);
 
   --secondary-light: rgb(250, 233, 200);
   --secondary-mid: rgb(234, 167, 43);
   --secondary-dark: rgb(186, 124, 9);
   
-  --background: rgb(255, 255, 255);
-  --card-light: rgb(208, 228, 230);
-  --card-dark: rgb(181, 203, 205);
-  --text-light: rgb(85, 85, 85);
-  --text-dark: rgb(47, 47, 47);
+  --background: rgb(0, 0, 0);
+  --card-dark: rgb(32, 34, 34);
+  --card-light: rgb(52, 63, 64);
+  
+  --text-light: rgb(221, 221, 221);
+  --text-dark: rgb(35, 35, 35);
 
   font-family: sans-serif, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -22,15 +22,32 @@
   margin: 0;
   padding: 0;
   border: none;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 h1 {
   text-wrap: wrap;
   text-align: center;
 }
+p {
+  text-align: center;
+}
 
 body {
   background-color: var(--background);
   min-height: 100vh;
+}
+
+.button{
+  background-color: var(--card-light);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.button:hover{
+  filter: brightness(80%);
+  cursor: pointer;
+}
+.button:active{
+  filter: brightness(105%);
+  cursor: pointer;
 }
