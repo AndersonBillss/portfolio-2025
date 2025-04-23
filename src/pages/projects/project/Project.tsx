@@ -1,5 +1,6 @@
 import './project.css'
 import { project } from "../../../projects"
+import { technologies, technologyNames } from '../../../technologies';
 import { RefObject, useEffect, useRef, useState } from 'react'
 
 function useDimensions(ref: RefObject<HTMLElement | null>) {
@@ -54,8 +55,13 @@ export default function Project(props: componentProps){
                         </svg>
                     </div>
                 </div>
-                <div className={expanded?'card-bottom expanded' : 'card-bottom'}>
-                    HELLO
+                <div className='card-bottom'>
+                    {projectData.description}
+                    <div className='card-technologies'>
+                        {projectData.technologies.map((technology: technologies, index: number) => {
+                            return <div className='card-technology' key={index}>{technologyNames.get(technology)}</div>
+                        })}
+                    </div>
                 </div>
             </div>
         </div>

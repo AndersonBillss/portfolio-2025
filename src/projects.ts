@@ -40,7 +40,7 @@ export const projects: project[] = [
         hostedLink: 'https://andersonbillss.github.io/Golf-Score-App/',
         githubLink: 'https://github.com/AndersonBillss/Golf-Score-App',
         technologies: [
-            technologies.javaScript,
+            technologies.JavaScript,
             technologies.HTML,
             technologies.CSS
         ],
@@ -48,11 +48,11 @@ export const projects: project[] = [
     },
     {
         title: 'To Do List App',
-        description: 'This robust to do list app was created using vanilla javaScript',
+        description: 'This robust to do list app was created using vanilla javaScript.',
         hostedLink: 'https://andersonbillss.github.io/toDoListApp/',
         githubLink: 'https://github.com/AndersonBillss/toDoListApp',
         technologies: [
-            technologies.javaScript,
+            technologies.JavaScript,
             technologies.HTML,
             technologies.CSS
         ],
@@ -65,7 +65,7 @@ export const projects: project[] = [
         githubLink: 'https://github.com/AndersonBillss/react-game-project',
         technologies: [
             technologies.React,
-            technologies.javaScript,
+            technologies.JavaScript,
             technologies.HTML,
             technologies.CSS,
         ],
@@ -78,7 +78,7 @@ export const projects: project[] = [
         githubLink: 'https://github.com/Ash-mp3/capstone',
         technologies: [
             technologies.React,
-            technologies.javaScript,
+            technologies.JavaScript,
             technologies.HTML,
             technologies.CSS,
             technologies.Nodejs
