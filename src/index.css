@@ -21,12 +21,22 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: 16px;
+  font-weight: normal;
   border: none;
   color: var(--text-light);
   text-decoration: none;
 }
 
 h1 {
+  font-weight: bold;
+  font-size: 36px;
+  text-wrap: wrap;
+  text-align: center;
+}
+h2{
+  font-weight: bold;
+  font-size: 24px;
   text-wrap: wrap;
   text-align: center;
 }

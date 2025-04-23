@@ -1,0 +1,5 @@
+.card{
+    background-color: var(--card-light);
+    padding: 10px 20px;
+    margin: 10px;
+}

@@ -1,6 +1,6 @@
 import { technologies } from "./technologies"
 
-interface project {
+export interface project {
     title: string,
     description: string,
     hostedLink?: string,
