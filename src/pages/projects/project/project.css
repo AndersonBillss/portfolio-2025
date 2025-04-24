@@ -53,3 +53,11 @@
 .icon-path.down{
     transform: rotate(90deg);
 }
+
+.links{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-link{
+    margin: 10px;
+}

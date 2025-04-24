@@ -119,6 +119,7 @@ export const projects: project[] = [
         title: 'Trivia Website',
         description: 'I created a trivia website for a ward game night.',
         githubLink: 'https://github.com/AndersonBillss/trivia-website',
+        hostedLink: 'https://wardtrivia.netlify.app/',
         technologies: [
             technologies.Angular,
             technologies.Typescript,
@@ -131,6 +132,7 @@ export const projects: project[] = [
         title: 'Angular NASA Website',
         description: "I use NASA's API to display the NASA image of the day for your birthdate.",
         githubLink: 'https://github.com/AndersonBillss/angular-nasa-api',
+        hostedLink: 'https://nasa-image-site.netlify.app/',
         technologies: [
             technologies.Angular,
             technologies.Typescript,
@@ -143,7 +145,7 @@ export const projects: project[] = [
         title: 'BYU Web Programming Startup',
         description: 'This is a full stack application that allows you to play games with friends.',
         githubLink: 'https://github.com/AndersonBillss/startup',
-        demoLink: 'startup.webprogramming260startup.click',
+        hostedLink: 'https://startup.webprogramming260startup.click',
         technologies: [
             technologies.React,
             technologies.JavaScript,
@@ -156,7 +158,7 @@ export const projects: project[] = [
         title: 'BYU Book of Mormon Class Final Project',
         description: 'This website shows a simulation of the pride cycle.',
         githubLink: 'https://github.com/AndersonBillss/REL_A_275_pride_cycle_website',
-        demoLink: 'pridecycle.netlify.app',
+        hostedLink: 'https://pridecycle.netlify.app',
         technologies: [
             technologies.Angular,
             technologies.Typescript,
