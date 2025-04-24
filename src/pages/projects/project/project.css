@@ -32,7 +32,7 @@
 .card-technology{
     font-size: 14px;
     padding: 2px 5px;
-    margin: 0 5px;
+    margin: 2px 5px;
     border-radius: 5px;
     background-color: var(--card-dark);
 }

@@ -21,7 +21,9 @@ export default function MouseLight(props: componentProps){
         if (!canvas) return;
         const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
         if(!ctx) return;
-        updateCanvasSize(canvas)
+        setTimeout(() => {
+            updateCanvasSize(canvas, ctx)
+        })
         
         let cssColor = getComputedStyle(canvas).getPropertyValue('color').trim();
         if(cssColor) color1 = cssColor;
@@ -38,7 +40,7 @@ export default function MouseLight(props: componentProps){
         document.addEventListener("mousemove", mouseEvent)
         
         // Redraw when the element is resized
-        const observer = new ResizeObserver(() => { updateCanvasSize(canvas) });
+        const observer = new ResizeObserver(() => { updateCanvasSize(canvas, ctx) });
         observer.observe(canvas);
         return () => {
             observer.disconnect()
@@ -46,10 +48,11 @@ export default function MouseLight(props: componentProps){
         };
     },[])
 
-    function updateCanvasSize(canvas: HTMLCanvasElement){
+    function updateCanvasSize(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D){
         // Set the canvas's width and heigh based off of the browser computed width and height
         canvas.width = canvas.clientWidth;
         canvas.height = canvas.clientHeight;
+        drawLight(canvas, ctx)
     }
     
     function drawLight(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D){
