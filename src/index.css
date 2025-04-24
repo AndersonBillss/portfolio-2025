@@ -67,3 +67,7 @@ body {
   filter: brightness(105%);
   cursor: pointer;
 }
+
+.link{
+  text-decoration: underline;
+}

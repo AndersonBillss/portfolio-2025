@@ -5,18 +5,22 @@ import HexagonBackground from './shared/HexagonBackground'
 import MouseLight from './shared/MouseLight'
 import Navbar from './shared/navbar/Navbar'
 import Projects from './pages/projects/Projects';
+import Footer from './shared/footer/Footer';
 
 function App() {
 
   return (
     <div className='main'>
-      <Navbar />
       <HexagonBackground inverted className='hexagon-background'/>
       <MouseLight radius={2000} className='mouse-light'/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-      </Routes>
+      <div className='top'>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   )
 }
