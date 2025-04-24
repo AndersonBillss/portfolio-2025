@@ -14,6 +14,9 @@ export enum technologies {
     Python,
     Nodejs,
     AWS,
+    Mongodb,
+    SQL,
+    Firebase
 }
 
 export const technologyNames = new Map<technologies, string>();
@@ -32,3 +35,6 @@ technologyNames.set(technologies.Java, "Java")
 technologyNames.set(technologies.Python, "Python")
 technologyNames.set(technologies.Nodejs, "Node.js")
 technologyNames.set(technologies.AWS, "AWS")
+technologyNames.set(technologies.Mongodb, "MongoDB")
+technologyNames.set(technologies.SQL, "SQL")
+technologyNames.set(technologies.Firebase, "Firebase")
