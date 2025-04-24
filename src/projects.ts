@@ -85,4 +85,84 @@ export const projects: project[] = [
         ],
         img: null
     },
+    {
+        title: 'Godot Planets',
+        description: 'This application will allow you to edit and share planets you build.',
+        githubLink: 'https://github.com/AndersonBillss/godot_planets',
+        technologies: [
+            technologies.Godot,
+            technologies.CS
+        ],
+        img: null
+    },
+    {
+        title: 'Godot 2D Platformer',
+        description: 'This is an ongoing passion project to create my own 2D game',
+        githubLink: 'https://github.com/AndersonBillss/godot_seeds_of_will',
+        technologies: [
+            technologies.Godot,
+            technologies.CS
+        ],
+        img: null
+    },
+    {
+        title: 'C++ Game Engine',
+        description: 'I used OpenGL and C++ to create a code-based game engine.',
+        githubLink: 'https://github.com/AndersonBillss/cpp-engine-practice',
+        technologies: [
+            technologies.Godot,
+            technologies.CS
+        ],
+        img: null
+    },
+    {
+        title: 'Trivia Website',
+        description: 'I created a trivia website for a ward game night.',
+        githubLink: 'https://github.com/AndersonBillss/trivia-website',
+        technologies: [
+            technologies.Angular,
+            technologies.Typescript,
+            technologies.HTML,
+            technologies.CSS
+        ],
+        img: null
+    },
+    {
+        title: 'Angular NASA Website',
+        description: "I use NASA's API to display the NASA image of the day for your birthdate.",
+        githubLink: 'https://github.com/AndersonBillss/angular-nasa-api',
+        technologies: [
+            technologies.Angular,
+            technologies.Typescript,
+            technologies.HTML,
+            technologies.CSS
+        ],
+        img: null
+    },
+    {
+        title: 'BYU Web Programming Startup',
+        description: 'This is a full stack application that allows you to play games with friends',
+        githubLink: 'https://github.com/AndersonBillss/startup',
+        demoLink: 'startup.webprogramming260startup.click',
+        technologies: [
+            technologies.React,
+            technologies.JavaScript,
+            technologies.HTML,
+            technologies.CSS
+        ],
+        img: null
+    },
+    {
+        title: 'BYU Book of Mormon Class Final Project',
+        description: 'This website shows a simulation of the pride cycle',
+        githubLink: 'https://github.com/AndersonBillss/REL_A_275_pride_cycle_website',
+        demoLink: 'pridecycle.netlify.app',
+        technologies: [
+            technologies.Angular,
+            technologies.Typescript,
+            technologies.HTML,
+            technologies.CSS
+        ],
+        img: null
+    },
 ]
