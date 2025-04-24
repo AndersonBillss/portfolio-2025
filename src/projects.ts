@@ -110,8 +110,7 @@ export const projects: project[] = [
         description: 'I used OpenGL and C++ to create a code-based game engine.',
         githubLink: 'https://github.com/AndersonBillss/cpp-engine-practice',
         technologies: [
-            technologies.Godot,
-            technologies.CS
+            technologies.CPP,
         ],
         img: null
     },
