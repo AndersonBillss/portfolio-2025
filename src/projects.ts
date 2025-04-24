@@ -97,7 +97,7 @@ export const projects: project[] = [
     },
     {
         title: 'Godot 2D Platformer',
-        description: 'This is an ongoing passion project to create my own 2D game',
+        description: 'This is an ongoing passion project to create my own 2D game.',
         githubLink: 'https://github.com/AndersonBillss/godot_seeds_of_will',
         technologies: [
             technologies.Godot,
@@ -141,7 +141,7 @@ export const projects: project[] = [
     },
     {
         title: 'BYU Web Programming Startup',
-        description: 'This is a full stack application that allows you to play games with friends',
+        description: 'This is a full stack application that allows you to play games with friends.',
         githubLink: 'https://github.com/AndersonBillss/startup',
         demoLink: 'startup.webprogramming260startup.click',
         technologies: [
@@ -154,7 +154,7 @@ export const projects: project[] = [
     },
     {
         title: 'BYU Book of Mormon Class Final Project',
-        description: 'This website shows a simulation of the pride cycle',
+        description: 'This website shows a simulation of the pride cycle.',
         githubLink: 'https://github.com/AndersonBillss/REL_A_275_pride_cycle_website',
         demoLink: 'pridecycle.netlify.app',
         technologies: [
