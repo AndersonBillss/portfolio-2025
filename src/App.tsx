@@ -1,7 +1,7 @@
 import './App.css'
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home'
-import HexagonBackground from './shared/HexagonBackground'
+import HexagonBackground from './shared/hexagonBackground/HexagonBackground'
 import MouseLight from './shared/MouseLight'
 import Navbar from './shared/navbar/Navbar'
 import Projects from './pages/projects/Projects';

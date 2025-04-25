@@ -1,4 +1,5 @@
 import { RefObject, useEffect, useRef } from "react"
+import "./hexagonBackground.css"
 
 type componentProps = {
     className?: string,
@@ -7,7 +8,9 @@ type componentProps = {
     inverted?: boolean
 }
 export default function HexagonBackground(props: componentProps){
+    const canvasContainerRef: RefObject<HTMLDivElement | null> = useRef(null)
     const canvasRef: RefObject<HTMLCanvasElement | null> = useRef(null);
+    const factor = 1.5 // This decides when to redraw the hexagons for screenSizes
     const sideLength: number = props.sideLength??20;
     const lineThickess: number = props.lineThickness??3;
     let color: string = "black";
@@ -18,23 +21,45 @@ export default function HexagonBackground(props: componentProps){
         if (!canvas) return;
         const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
         if(!ctx) return;
-        let cssColor = getComputedStyle(canvas).getPropertyValue('color').trim();
+        const canvasContainer: HTMLDivElement | null = canvasContainerRef.current
+        if(!canvasContainer) return
+
+        let cssColor = getComputedStyle(canvasContainer).getPropertyValue('color').trim();
         if(cssColor) color = cssColor;
 
         // Initial hexagon draw
-        drawHexagons(canvas, ctx)
+        drawHexagons(canvas, ctx, canvasContainer.clientWidth, canvasContainer.clientHeight)
         
         // Redraw the hexagons when the element is resized
-        const observer = new ResizeObserver(() => { drawHexagons(canvas, ctx) });
-        observer.observe(canvas);
+        const observer = new ResizeObserver(() => {
+            let newWidth: number | null = null
+            let newheight: number | null = null
+
+            const widthResizeUp = canvasContainer.clientWidth > canvas.width
+            if(widthResizeUp) newWidth = canvasContainer.clientWidth * factor
+            const heightResizeUp = canvasContainer.clientHeight > canvas.height
+            if(heightResizeUp) newheight = canvasContainer.clientHeight * factor
+
+            const widthResizeDown = (canvasContainer.clientWidth * factor) < canvas.width
+            if(widthResizeDown) newWidth = canvasContainer.clientWidth
+            const heightResizeDown = (canvasContainer.clientHeight * factor) < canvas.height
+            if(heightResizeDown) newheight = canvasContainer.clientHeight
+
+            if(newWidth || newheight){
+                newWidth ??= canvasContainer.clientWidth
+                newheight ??= canvasContainer.clientHeight
+                drawHexagons(canvas, ctx, newWidth, newheight)
+            }
+        });
+        observer.observe(canvasContainer);
         return () => observer.disconnect();
     },[])
     
     
-    function drawHexagons(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D){
+    function drawHexagons(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, width: number, height: number){
         // Set the canvas's width and heigh based off of the browser computed width and height
-        canvas.width = canvas.clientWidth;
-        canvas.height = canvas.clientHeight;
+        canvas.width = width;
+        canvas.height = height;
         
         // Clear the canvas
         if(inverted){
@@ -103,5 +128,11 @@ export default function HexagonBackground(props: componentProps){
         ctx.stroke()
     }
 
-    return <canvas className={props.className} ref={canvasRef} />
+    return (
+    <div ref={canvasContainerRef} className={props.className}>
+        <div className="hexagon-container">
+            <canvas className="hexagon-canvas" ref={canvasRef} />
+        </div>
+    </div>
+    )
 }
