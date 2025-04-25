@@ -20,7 +20,7 @@ export enum technologies {
 }
 
 export const technologyNames = new Map<technologies, string>();
-technologyNames.set(technologies.Typescript, "Typescript")
+technologyNames.set(technologies.Typescript, "TypeScript")
 technologyNames.set(technologies.JavaScript, "JavaScript")
 technologyNames.set(technologies.HTML, "HTML")
 technologyNames.set(technologies.CSS, "CSS")
