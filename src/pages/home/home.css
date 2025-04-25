@@ -1,5 +1,6 @@
 .home-page{
     width: 100%;
+    margin-bottom: 50px;
 }
 .home-img-container{
     position: relative;
@@ -37,6 +38,8 @@
 
 .portrait-section{
   display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .portrait-img-container{
   --portrait-width: 250px;
@@ -45,7 +48,6 @@
   height: var(--portrait-width);
   margin-top: 150px;
   margin: 150px 15px 15px 15px;
-  left: 10%;
 }
 .portrait-img{
   width: 100%;
@@ -58,7 +60,7 @@
 .photo-outline{
   --portrait-border-weight: 5px;
   position: absolute;
-  border: var(--portrait-border-weight) var(--primary-light) solid;
+  border: var(--portrait-border-weight) var(--secondary-light) solid;
   transform: translate(calc(var(--portrait-border-weight) * -1), calc(var(--portrait-border-weight) * -1));
   border-radius: 50%;
   width: 100%;
@@ -66,12 +68,33 @@
   z-index: -1;
 }
 
+.description{
+  max-width: 50%;
+}
+.description-paragraph{
+  font-size: 18px;
+  padding: 5px 10px;
+  margin: 10px;
+  background-color: var(--secondary-dark);
+  border-radius: 5px;
+  transform: translateY(200px);
+  opacity: 0;
+  transition: transform .75s, opacity .75s;
+}
+.description-paragraph.animated{
+  transform: translateY(0);
+  opacity: 1;
+}
+
 @media (max-width: 800px) {
+  .description{
+    max-width: 90%;
+  }
   .portrait-img-container {
     left: auto;
   }
   .portrait-section{
-    justify-content: center;
+    flex-direction: column;
   }
 }
 @media (max-width: 350px) {
