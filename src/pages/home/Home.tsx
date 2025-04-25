@@ -11,9 +11,11 @@ export default function Home(){
               <p>Full Stack Software Developer</p>
             </div>
         </div>
-        <div className="portrait-img-container">
-          <img className="portrait-img" src="Anderson-Photo.png" />
-          <div className="photo-outline"></div>
+        <div className="portrait-section">
+          <div className="portrait-img-container">
+            <img className="portrait-img" src="Anderson-Photo.png" />
+            <div className="photo-outline"></div>
+          </div>
         </div>
       </div>
     )
