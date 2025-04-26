@@ -46,7 +46,6 @@
   position: relative;
   width: var(--portrait-width);
   height: var(--portrait-width);
-  margin-top: 150px;
   margin: 150px 15px 15px 15px;
 }
 .portrait-img{
@@ -70,7 +69,7 @@
 
 .description {
   max-width: 50%;
-  position: relative;
+  margin-top: 50px;
 }
 .description-paragraph{
   transform: translate(0,200px);
@@ -90,6 +89,7 @@
 @media (max-width: 800px) {
   .description{
     max-width: 90%;
+    margin-top: 50px;
   }
   .portrait-img-container {
     left: auto;
