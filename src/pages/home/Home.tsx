@@ -31,7 +31,7 @@ export default function Home(){
     for(let i=0; i<descriptionRef.current.children.length; i++){
       setTimeout(() => {
         if(descriptionRef.current)
-        descriptionRef.current.children[i].classList.add("animated")
+        descriptionRef.current.children[i].children[0].classList.add("animated")
       }, 300 * i)
     }
   }
@@ -52,9 +52,18 @@ export default function Home(){
           <div className="photo-outline"></div>
         </div>
         <div className="description" ref={descriptionRef}>
-          <p className="description-paragraph">Certified by Mountainland Technical College</p>
-          <p className="description-paragraph">Work experience at MotivHealth</p>
-          <p className="description-paragraph">Currently enrolled in BYU as a CS major (emphasis on Software Engineering)</p>
+          <div className="description-paragraph container">
+            <p className="description-paragraph animation">Certified by Mountainland Technical College</p>
+            Certified by Mountainland Technical College
+          </div>
+          <div className="description-paragraph container">
+            <p className="description-paragraph animation">Work experience at MotivHealth</p>
+            Work experience at MotivHealth
+          </div>
+          <div className="description-paragraph container">
+            <p className="description-paragraph animation">Currently enrolled in BYU as a CS major (emphasis on Software Engineering)</p>
+            Currently enrolled in BYU as a CS major (emphasis on Software Engineering)
+          </div>
         </div>
       </div>
     </div>
