@@ -7,7 +7,7 @@ export default function Projects(){
     return (
         <div className="projects-page">
             <h1>Projects</h1>
-            <TextInput label="Hello"/>
+            <TextInput label="Filter by technology used"/>
             {projects.map((project: project, index: number) => <Project project={project} key={index} />)}
         </div>
     )

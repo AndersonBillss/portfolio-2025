@@ -9,7 +9,8 @@
   
   --background: rgb(0, 0, 0);
   --card-dark: rgb(32, 34, 34);
-  --card-light: rgb(52, 63, 64);
+  --card-mid: rgb(52, 63, 64);
+  --card-light: rgb(176, 179, 179);
   
   --text-light: rgb(221, 221, 221);
   --text-mid: rgb(67, 67, 67);
@@ -56,7 +57,7 @@ body {
 }
 
 .button{
-  background-color: var(--card-light);
+  background-color: var(--card-mid);
   padding: 10px 15px;
   border-radius: 5px;
 }
