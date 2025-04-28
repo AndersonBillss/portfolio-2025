@@ -1,0 +1,56 @@
+.text-input-container{
+    --animation-time: .1s;
+    position: relative;
+    width: 200px;
+    height: 50px;
+    overflow: hidden;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: 3px var(--text-dark) solid;
+    transition: border-color var(--animation-time);
+}
+.text-input{
+    position: absolute;
+    display: flex;
+    align-items: bottom;
+    padding-top: 8px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-light);
+    color: var(--text-dark);
+    text-indent: 10px;
+}
+.text-input::placeholder{
+    color: rgba(0, 0, 0, 0);
+}
+.text-input-label{
+    pointer-events: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-40%);
+    text-indent: 10px;
+    transition: width var(--animation-time), height var(--animation-time);
+
+    transition: top var(--animation-time), transform var(--animation-time), font-size var(--animation-time);
+}
+
+.text-input-container:has(input:focus) .text-input-label{
+    top: 10%;
+    transform: translateY(0);
+    font-size: 13px;
+}
+.text-input-container.contains-text .text-input-label{
+    top: 10%;
+    transform: translateY(0);
+    font-size: 13px;
+}
+
+.text-input-container:has(input:focus){
+    border-bottom: 3px var(--secondary-mid) solid;
+}
