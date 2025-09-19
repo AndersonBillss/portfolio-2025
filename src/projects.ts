@@ -135,7 +135,7 @@ export const projects: project[] = [
         githubLink: 'https://github.com/AndersonBillss/Angular-wiki',
         technologies: [
             technologies.Angular,
-            technologies.Typescript,
+            technologies.TypeScript,
             technologies.HTML,
             technologies.CSS,
             technologies.Nodejs,
@@ -150,7 +150,7 @@ export const projects: project[] = [
         hostedLink: 'https://wardtrivia.netlify.app/',
         technologies: [
             technologies.Angular,
-            technologies.Typescript,
+            technologies.TypeScript,
             technologies.HTML,
             technologies.CSS
         ],
@@ -163,7 +163,7 @@ export const projects: project[] = [
         hostedLink: 'https://nasa-image-site.netlify.app/',
         technologies: [
             technologies.Angular,
-            technologies.Typescript,
+            technologies.TypeScript,
             technologies.HTML,
             technologies.CSS
         ],
@@ -176,7 +176,7 @@ export const projects: project[] = [
         hostedLink: 'https://pridecycle.netlify.app',
         technologies: [
             technologies.Angular,
-            technologies.Typescript,
+            technologies.TypeScript,
             technologies.HTML,
             technologies.CSS
         ],

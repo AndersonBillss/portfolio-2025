@@ -1,6 +1,6 @@
 import './project.css'
 import { project } from "../../../projects"
-import { technologies, technologyNames } from '../../../technologies';
+import { technologies } from '../../../technologies';
 import { RefObject, useEffect, useRef, useState } from 'react'
 
 function useDimensions(ref: RefObject<HTMLElement | null>) {
@@ -59,7 +59,7 @@ export default function Project(props: componentProps){
                     {projectData.description}
                     <div className='card-technologies'>
                         {projectData.technologies.map((technology: technologies, index: number) => {
-                            return <div className='card-technology' key={index}>{technologyNames.get(technology)}</div>
+                            return <div className='card-technology' key={index}>{technology}</div>
                         })}
                     </div>
                     <div className='links'>
