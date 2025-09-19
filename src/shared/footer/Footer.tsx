@@ -1,9 +1,9 @@
 import './footer.css'
 
 export default function Footer() {
-    let iconColor: string | null = null
-    const root: HTMLElement | null = document.getElementById('root');
-    if (root) iconColor = getComputedStyle(root).getPropertyValue('--text-light')
+    // let iconColor: string | null = null
+    // const root: HTMLElement | null = document.getElementById('root');
+    // if (root) iconColor = getComputedStyle(root).getPropertyValue('--text-light')
     return (
         <div className='footer'>
             <a className='link' target='_blank' href='https://github.com/AndersonBillss'>
