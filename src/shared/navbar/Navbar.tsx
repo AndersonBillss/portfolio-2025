@@ -6,6 +6,7 @@ export default function Navbar(){
         <div className="navbar">
            <Link className="button" to="/">Home</Link>
            <Link className="button" to="/projects">See Projects</Link>
+           <Link className="button" to="/blog">Blog</Link>
         </div>
     )
 }

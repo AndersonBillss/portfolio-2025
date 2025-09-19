@@ -6,6 +6,7 @@ import MouseLight from './shared/MouseLight'
 import Navbar from './shared/navbar/Navbar'
 import Projects from './pages/projects/Projects';
 import Footer from './shared/footer/Footer';
+import Blog from './pages/blog/Blog';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
       </div>
       <Footer />
